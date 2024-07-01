@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char choice;
+    double temperature;
+
+    cout << "Choose a temperature scale (c for Celsius, f for Fahrenheit, k for Kelvin): ";
+    cin >> choice;
+
+    cout << "Enter the temperature value: ";
+    cin >> temperature;
+
+    switch (choice) {
+        case 'c':
+        case 'C':
+            // Convert Celsius to Fahrenheit and Kelvin
+            double fahrenheit = (temperature * 9.0 / 5.0) + 32.0;
+            double kelvin = temperature + 273.15;
+            cout << "Fahrenheit: " << fahrenheit << endl;
+            cout << "Kelvin: " << kelvin << endl;
+            break;
+
+        case 'f':
+        case 'F':
+            // Convert Fahrenheit to Celsius and Kelvin
+            double celsius = (temperature - 32.0) * 5.0 / 9.0;
+            kelvin = (temperature + 459.67) * 5.0 / 9.0;
+            cout << "Celsius: " << celsius << endl;
+            cout << "Kelvin: " << kelvin << endl;
+            break;
+
+        case 'k':
+        case 'K':
+            // Convert Kelvin to Celsius and Fahrenheit
+            celsius = temperature - 273.15;
+            fahrenheit = (temperature * 9.0 / 5.0) - 459.67;
+            cout << "Celsius: " << celsius << endl;
+            cout << "Fahrenheit: " << fahrenheit << endl;
+            break;
+
+        default:
+            cout << "Invalid choice. Please choose c, f, or k." << endl;
+    }
+
+    return 0;
+}
